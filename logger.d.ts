@@ -26,6 +26,9 @@ declare class Logger {
 // Default logger instance
 declare const logger: Logger;
 
+// Create logger utility function
+declare function createLogger(options?: LoggerOptions): Logger;
+
 // Individual log methods
 declare const debug: (...args: any[]) => void;
 declare const info: (...args: any[]) => void;
@@ -35,6 +38,7 @@ declare const error: (...args: any[]) => void;
 export = Logger;
 export {
   logger,
+  createLogger,
   debug,
   info,
   warn,

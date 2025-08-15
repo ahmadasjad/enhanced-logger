@@ -6,6 +6,7 @@ A customizable logger for JavaScript projects that works in both Node.js and bro
 
 - Multiple log levels (debug, info, warn, error)
 - Multiple import patterns (instance, methods, class)
+- `createLogger` utility function
 - Custom log levels
 - Configurable minimum log level
 - Timestamp support
@@ -23,61 +24,56 @@ npm install js-logger
 
 ### Option 1: Using default logger instance
 ```javascript
-// CommonJS
 const { logger } = require('js-logger');
 logger.info('Info message');
-
-// ES Modules
-import { logger } from 'js-logger';
-logger.warn('Warning message');
 ```
 
 ### Option 2: Using individual methods
 ```javascript
-// CommonJS
-const { debug, info } = require('js-logger');
+import { debug, info } from 'js-logger';
 debug('Debug message');
-
-// ES Modules
-import { info, error } from 'js-logger';
-error('Error message');
 ```
 
-### Option 3: Creating custom logger
+### Option 3: Using createLogger utility
 ```javascript
 // CommonJS
-const Logger = require('js-logger');
-const customLogger = new Logger({ minLevel: 'warn' });
+const { createLogger } = require('js-logger');
+const logger = createLogger({ minLevel: 'warn' });
 
 // ES Modules
+import { createLogger } from 'js-logger';
+const logger = createLogger({ timestamp: false });
+```
+
+### Option 4: Creating custom logger
+```javascript
 import Logger from 'js-logger';
-const customLogger = new Logger({ timestamp: false });
+const logger = new Logger({ customLevels: { success: { color: chalk.green, level: 1.5 } });
 ```
 
 ## TypeScript Usage
 ```typescript
-import { logger, debug } from 'js-logger';
+import { createLogger } from 'js-logger';
 
-logger.info('Using logger instance');
-debug('Using direct method');
+const logger = createLogger();
+logger.info('TypeScript usage');
 ```
 
 ## Framework Integration
 
 ### React
 ```javascript
-import { info } from 'js-logger';
+import { createLogger } from 'js-logger';
 
-function Component() {
-  info('Component rendered');
-  return null;
-}
+const logger = createLogger({
+  minLevel: process.env.NODE_ENV === 'production' ? 'warn' : 'debug'
+});
 ```
 
 ### React Native
 ```javascript
-import { logger } from 'js-logger';
-logger.configure({ timestamp: false });
+import { createLogger } from 'js-logger';
+const logger = createLogger({ timestamp: false });
 ```
 
 ## API Reference
@@ -85,6 +81,7 @@ logger.configure({ timestamp: false });
 ### Default Exports
 - `logger` - Pre-configured logger instance
 - `debug`, `info`, `warn`, `error` - Bound logging methods
+- `createLogger(options)` - Utility function to create logger instances
 
 ### Logger Class
 - `new Logger(options)`

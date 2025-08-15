@@ -55,9 +55,15 @@ class Logger {
 // Create default instance
 const logger = new Logger();
 
+// Utility function to create logger instances
+function createLogger(options) {
+  return new Logger(options);
+}
+
 // Export both class and default instance
 module.exports = Logger;
 module.exports.logger = logger;
+module.exports.createLogger = createLogger;
 module.exports.debug = logger.debug.bind(logger);
 module.exports.info = logger.info.bind(logger);
 module.exports.warn = logger.warn.bind(logger);
