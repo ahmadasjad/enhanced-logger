@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+import chalk from 'chalk';
 
 class Logger {
   constructor(options = {}) {
@@ -67,11 +67,9 @@ function createLogger(options = {}) {
 const logger = createLogger();
 
 // Export all functionality
-module.exports = {
-  logger,
-  createLogger,
-  debug: logger.debug.bind(logger),
-  info: logger.info.bind(logger),
-  warn: logger.warn.bind(logger),
-  error: logger.error.bind(logger)
-};
+export { logger, createLogger };
+
+export const debug = logger.debug.bind(logger);
+export const info = logger.info.bind(logger);
+export const warn = logger.warn.bind(logger);
+export const error = logger.error.bind(logger);
