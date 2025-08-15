@@ -21,5 +21,13 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-native": ">=0.60.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmadasjad/enhanced-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahmadasjad/enhanced-logger/issues"
+  },
+  "homepage": "https://github.com/ahmadasjad/enhanced-logger"
 }
