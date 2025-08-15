@@ -2,6 +2,13 @@ import chalk from 'chalk';
 
 class Logger {
   constructor(options = {}) {
+    this.browserColors = {
+      debug: '#888',
+      info: '#0074D9',
+      warn: '#FF851B',
+      error: '#FF4136',
+      ...options.browserColors
+    };
     this.levels = {
       debug: { color: chalk.gray, level: 0 },
       info: { color: chalk.blue, level: 1 },
@@ -25,7 +32,8 @@ class Logger {
     const prefix = `${timestamp}[${level.toUpperCase()}]`;
     
     if (this.isBrowser) {
-      console.log(`%c${prefix}`, `color: ${levelConfig.color ? levelConfig.color.hex : 'inherit'}`, ...args);
+      const color = this.browserColors[level] || 'inherit';
+      console.log(`%c${prefix}`, `color: ${color}`, ...args);
     } else {
       console.log(levelConfig.color(prefix), ...args);
     }
