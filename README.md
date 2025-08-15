@@ -2,11 +2,20 @@
 
 A customizable logger for JavaScript projects that works in both Node.js and browser environments.
 
+```javascript
+const { logger } = require('enhanced-logger');
+
+logger.debug('Debug message');
+logger.info('Info message');
+logger.warn('Warning message');
+logger.error('Error message');
+```
+![Log Levels Output](./examples/log-output.png)
+
 ## Features
 
-- Multiple log levels (debug, info, warn, error)
+- Multiple log levels (debug, info, warn, error, ...and your custom level)
 - Pre-configured logger instance
-- Individual log method exports
 - `createLogger` utility function
 - TypeScript support
 - ES Module and CommonJS support
