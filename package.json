@@ -1,7 +1,7 @@
 {
-  "name": "js-logger",
+  "name": "enhanced-logger",
   "version": "1.0.0",
-  "description": "A customizable logger for JavaScript projects",
+  "description": "An enhanced, customizable logger for JavaScript projects",
   "main": "logger.js",
   "module": "logger.mjs",
   "types": "logger.d.ts",

@@ -1,4 +1,4 @@
-# JS Logger
+# Enhanced Logger
 
 A customizable logger for JavaScript projects that works in both Node.js and browser environments.
 
@@ -14,7 +14,7 @@ A customizable logger for JavaScript projects that works in both Node.js and bro
 ## Installation
 
 ```bash
-npm install js-logger
+npm install enhanced-logger
 ```
 
 ## Basic Usage
@@ -22,33 +22,33 @@ npm install js-logger
 ### Using default logger instance
 ```javascript
 // CommonJS
-const { logger } = require('js-logger');
+const { logger } = require('enhanced-logger');
 logger.info('Info message');
 
 // ES Modules
-import { logger } from 'js-logger';
+import { logger } from 'enhanced-logger';
 logger.warn('Warning message');
 ```
 
 ### Using individual methods
 ```javascript
 // CommonJS
-const { debug } = require('js-logger');
+const { debug } = require('enhanced-logger');
 debug('Debug message');
 
 // ES Modules
-import { error } from 'js-logger';
+import { error } from 'enhanced-logger';
 error('Error message');
 ```
 
 ### Using createLogger utility
 ```javascript
 // CommonJS
-const { createLogger } = require('js-logger');
+const { createLogger } = require('enhanced-logger');
 const logger = createLogger({ minLevel: 'warn' });
 
 // ES Modules
-import { createLogger } from 'js-logger';
+import { createLogger } from 'enhanced-logger';
 const logger = createLogger({ timestamp: false });
 ```
 
