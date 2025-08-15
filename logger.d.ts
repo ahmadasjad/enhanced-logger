@@ -35,7 +35,7 @@ declare const info: (...args: any[]) => void;
 declare const warn: (...args: any[]) => void;
 declare const error: (...args: any[]) => void;
 
-export = Logger;
+// Export all declarations
 export {
   logger,
   createLogger,
@@ -44,4 +44,3 @@ export {
   warn,
   error
 };
-export as namespace JSLogger;
