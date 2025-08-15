@@ -10,9 +10,9 @@ class Logger {
       ...options.customLevels
     };
 
-    this.minLevel = options.minLevel || 'debug';
-    this.timestamp = options.timestamp !== false;
-    this.isBrowser = typeof window !== 'undefined';
+    this.minLevel = options.minLevel;
+    this.timestamp = options.timestamp;
+    this.isBrowser = options.isBrowser;
   }
 
   log(level, ...args) {
@@ -54,7 +54,13 @@ class Logger {
 
 // Utility function to create logger instances
 function createLogger(options = {}) {
-  return new Logger(options);
+  const mergedOptions = {
+    minLevel: options.minLevel || 'debug',
+    timestamp: options.timestamp !== false,
+    isBrowser: typeof window !== 'undefined',
+    ...options,
+  };
+  return new Logger(mergedOptions);
 }
 
 // Create default instance using createLogger
